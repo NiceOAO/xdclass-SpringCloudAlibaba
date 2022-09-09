@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * @author 16602
@@ -20,7 +21,9 @@ public class VideoController {
     private VideoService videoService;
 
     @RequestMapping("/getVideo")
-    public Video getVideo(@RequestBody VideoDTO videoDTO){
-        return videoService.findById(videoDTO);
+    public Video getVideo(@RequestBody VideoDTO videoDTO, HttpServletRequest request){
+        Video video = videoService.findById(videoDTO);
+        video.setServerInfo(request.getServerName()+':'+request.getServerPort());
+        return video;
     }
 }
