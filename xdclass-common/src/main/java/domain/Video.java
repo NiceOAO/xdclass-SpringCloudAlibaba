@@ -36,4 +36,9 @@ public class Video {
 	 */
 	private Double point;
 
+	/**
+	 * 服务器信息
+	 */
+	private String serverInfo;
+
 }
