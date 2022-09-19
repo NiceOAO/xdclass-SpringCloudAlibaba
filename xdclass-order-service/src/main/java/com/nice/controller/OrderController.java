@@ -3,8 +3,10 @@ package com.nice.controller;
 import DTO.VideoDTO;
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.collection.CollUtil;
+import com.nice.service.VideoService;
 import domain.Video;
 import domain.VideoOrder;
+import org.checkerframework.checker.units.qual.A;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,13 +34,15 @@ public class OrderController {
     private RestTemplate restTemplate;
     @Autowired
     private DiscoveryClient discoveryClient;
+    @Autowired
+    private VideoService videoService;
 
     private static final Logger logger = LoggerFactory.getLogger(OrderController.class);
 
     @RequestMapping("/save")
     public VideoOrder save(@RequestBody VideoDTO videoDTO) {
         //拿到nacos注册的此服务的所有实例，存在多个可以使用随机数进行简单的负载均衡
-        List<ServiceInstance> serviceInstances = discoveryClient.getInstances("xdclass-video-service");
+//        List<ServiceInstance> serviceInstances = discoveryClient.getInstances("xdclass-video-service");
 
         // 初始化一个uri
 //        URI uri = null;
@@ -53,10 +57,10 @@ public class OrderController {
 //            logger.info("============ port:{} ==============", port);
 //            logger.info("============ uri:{} ===============", uri);
 //        }
-
         // 远程调用实例接口
-        Video video = restTemplate.postForObject("http://xdclass-video-service/api/v1/video/getVideo", videoDTO, Video.class);
+//        Video video = restTemplate.postForObject("http://xdclass-video-service/api/v1/video/getVideo", videoDTO, Video.class);
 
+        Video video = videoService.getVideo(videoDTO);
         // 组装结果
         VideoOrder videoOrder = new VideoOrder();
         BeanUtil.copyProperties(video, videoOrder);

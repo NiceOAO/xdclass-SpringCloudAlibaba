@@ -13,8 +13,16 @@ spring:
     nacos:
       discovery:
         server-addr: 192.168.224.130:8848
+    sentinel:
+      transport:
+        dashboard: 192.168.224.130:8080
+        port: 7100
 # 控制台输出sql、下划线转驼峰
 mybatis:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
     map-underscore-to-camel-case: true
+# 使用随机策略负载
+#xdclass-video-service:
+#  ribbon:
+#    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
