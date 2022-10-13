@@ -1,6 +1,6 @@
 package net.nice.service.Impl;
 
-import DTO.VideoDTO;
+import dto.VideoDTO;
 import domain.Video;
 import net.nice.dao.VideoMapper;
 import net.nice.service.VideoService;

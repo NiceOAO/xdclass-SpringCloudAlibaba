@@ -1,8 +1,7 @@
 package net.nice.service;
 
-import DTO.VideoDTO;
+import dto.VideoDTO;
 import domain.Video;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 
 /**

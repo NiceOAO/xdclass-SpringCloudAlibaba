@@ -1,6 +1,6 @@
 package com.nice.controller;
 
-import DTO.VideoDTO;
+import dto.VideoDTO;
 import cn.hutool.core.bean.BeanUtil;
 import com.nice.service.VideoService;
 import domain.Video;
@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -70,9 +71,16 @@ public class OrderController {
     public VideoOrder saveTest(@RequestBody VideoDTO videoDTO) {
         try {
             // 五秒延时模拟阻塞
-            TimeUnit.SECONDS.sleep(5);
+            TimeUnit.SECONDS.sleep(1);
         } catch (InterruptedException e) {
             e.printStackTrace();
+        }
+        // 抛出一个异常 模拟熔断
+
+        Integer errorFlag = new Random().nextInt();
+        logger.info("============ errorflag : {}============",errorFlag);
+        if(errorFlag%3 == 0){
+            throw new RuntimeException();
         }
 
         Video video = videoService.getVideo(videoDTO);

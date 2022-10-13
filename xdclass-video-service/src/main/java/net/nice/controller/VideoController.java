@@ -1,14 +1,11 @@
 package net.nice.controller;
 
-import DTO.VideoDTO;
+import dto.VideoDTO;
 import domain.Video;
 import net.nice.service.VideoService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 /**
