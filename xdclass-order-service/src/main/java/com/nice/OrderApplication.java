@@ -12,15 +12,15 @@ import org.springframework.web.client.RestTemplate;
  * @author 16602
  * 订单服务
  */
-@EnableDiscoveryClient
 /**
  * nacos服务发现
  */
-@SpringBootApplication
+@EnableDiscoveryClient
 /**
  * feign 启用
  */
 @EnableFeignClients
+@SpringBootApplication
 public class OrderApplication {
     public static void main(String[] args) {
         SpringApplication.run(OrderApplication.class,args);
