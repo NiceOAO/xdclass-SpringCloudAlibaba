@@ -1,8 +1,8 @@
-package net.nice.controller;
+package net.nice.video.controller;
 
-import dto.VideoDTO;
-import domain.Video;
-import net.nice.service.VideoService;
+import com.nice.common.dto.VideoDTO;
+import com.nice.common.domain.Video;
+import net.nice.video.service.VideoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

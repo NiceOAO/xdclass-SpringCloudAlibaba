@@ -1,7 +1,7 @@
-package com.nice.service;
+package com.nice.order.service;
 
-import dto.VideoDTO;
-import domain.Video;
+import com.nice.common.dto.VideoDTO;
+import com.nice.common.domain.Video;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,9 +10,13 @@ import org.springframework.web.bind.annotation.GetMapping;
  * @author 16602
  */
 @Service
-@FeignClient("xdclass-video-service")
 public interface VideoService {
 
-    @GetMapping("/api/v1/video/getVideo")
+    /**
+     * 查询视频信息
+     * @param videoDTO 入参
+     * @return Video实体
+     */
     Video getVideo(VideoDTO videoDTO);
+
 }

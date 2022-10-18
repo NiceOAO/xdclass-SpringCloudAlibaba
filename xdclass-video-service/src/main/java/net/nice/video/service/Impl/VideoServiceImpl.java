@@ -1,9 +1,9 @@
-package net.nice.service.Impl;
+package net.nice.video.service.Impl;
 
-import dto.VideoDTO;
-import domain.Video;
-import net.nice.dao.VideoMapper;
-import net.nice.service.VideoService;
+import com.nice.common.dto.VideoDTO;
+import com.nice.common.domain.Video;
+import net.nice.video.dao.VideoMapper;
+import net.nice.video.service.VideoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;

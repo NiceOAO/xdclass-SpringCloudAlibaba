@@ -1,4 +1,4 @@
-package dto;
+package com.nice.common.dto;
 
 /**
  * video查询入参
