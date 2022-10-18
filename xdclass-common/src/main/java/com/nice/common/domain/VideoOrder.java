@@ -1,4 +1,4 @@
-package domain;
+package com.nice.common.domain;
 
 
 import lombok.Data;

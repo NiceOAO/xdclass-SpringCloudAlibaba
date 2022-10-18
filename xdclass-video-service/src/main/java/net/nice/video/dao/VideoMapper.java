@@ -1,11 +1,9 @@
-package net.nice.dao;
+package net.nice.video.dao;
 
-import domain.Video;
+import com.nice.common.domain.Video;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
-
-import java.util.List;
 
 /**
  * @author 16602
