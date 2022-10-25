@@ -1,0 +1,31 @@
+server:
+  port: 18000
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.224.130:8848
+    gateway:
+      discovery:
+        locator:
+          enabled: true # 开启拉取nacos服务
+
+      routes: #数组形式
+        - id: order-service #路由标识
+#          uri: http://127.0.0.1:7000 # 转发到的地址
+          uri: lb://xdclass-order-service # 通过nacos获取地址
+          order: 1 # 优先级
+          predicates: # 断言 需要转发的路径
+            - Path=/order-service/**
+          filters: # 过滤器 请求在传递过程中通过过滤器修改
+            - StripPrefix=1 # 去掉第一层前缀/order-service/
+        - id: video-service #路由标识
+#          uri: http://127.0.0.1:9000 # 转发到的地址
+          uri: lb://xdclass-video-service # 通过nacos获取地址
+          order: 1 # 优先级
+          predicates: # 断言 需要转发的路径
+            - Path=/video-service/**
+          filters: # 过滤器 请求在传递过程中通过过滤器修改
+            - StripPrefix=1 # 去掉第一层前缀 去掉/video-service/

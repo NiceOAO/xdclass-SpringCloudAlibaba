@@ -1,6 +1,7 @@
 package com.nice.order.controller;
 
 import cn.hutool.core.bean.BeanUtil;
+import cn.hutool.core.util.StrUtil;
 import com.nice.order.service.VideoService;
 import com.nice.common.domain.Video;
 import com.nice.common.domain.VideoOrder;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
@@ -29,12 +31,15 @@ public class OrderController {
     private static final Logger logger = LoggerFactory.getLogger(OrderController.class);
 
     @RequestMapping("/save")
-    public VideoOrder save(@RequestBody VideoDTO videoDTO) {
+    public VideoOrder save(@RequestBody VideoDTO videoDTO, HttpServletRequest httpServletRequest) {
 
         Video video = videoService.getVideo(videoDTO);
         // 组装结果
+        logger.info("============ order url:{} ===============", httpServletRequest.getServerPort());
         logger.info("============ video serverInfo:{} ===============", video.getServerInfo());
-        return getVideoOrderByVideo(video);
+        VideoOrder result = getVideoOrderByVideo(video);
+        result.setOrderPort(StrUtil.toString(httpServletRequest.getServerPort()));
+        return result;
     }
 
     @RequestMapping("/saveTest")
