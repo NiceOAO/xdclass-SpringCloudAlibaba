@@ -6,12 +6,15 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: 192.168.224.130:8848
+        server-addr: 192.168.224.128:8848
+    sentinel:
+      transport:
+        dashboard: 192.168.224.128:8080
+        port: 18001
     gateway:
       discovery:
         locator:
           enabled: true # 开启拉取nacos服务
-
       routes: #数组形式
         - id: order-service #路由标识
 #          uri: http://127.0.0.1:7000 # 转发到的地址

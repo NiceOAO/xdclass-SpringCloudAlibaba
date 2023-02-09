@@ -27,9 +27,8 @@ public class OrderController {
 
     @Resource
     private VideoService videoService;
-
     private static final Logger logger = LoggerFactory.getLogger(OrderController.class);
-
+    
     @RequestMapping("/save")
     public VideoOrder save(@RequestBody VideoDTO videoDTO, HttpServletRequest httpServletRequest) {
 

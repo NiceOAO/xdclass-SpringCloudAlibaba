@@ -17,6 +17,10 @@ public class VideoServiceImpl implements VideoService {
     @Resource
     private VideoServiceFeign videoServiceFeign;
 
+    /**
+     * @param videoDTO 入参
+     * @return
+     */
     @Override
     public Video getVideo(VideoDTO videoDTO) {
         return videoServiceFeign.getVideo(videoDTO);
