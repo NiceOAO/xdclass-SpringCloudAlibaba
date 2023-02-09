@@ -44,5 +44,8 @@ public class VideoOrder {
      * 用户id
      */
     private Integer userId;
-
+    /**
+     * order port
+     */
+    private String orderPort;
 }

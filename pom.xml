@@ -12,6 +12,7 @@
         <module>xdclass-video-service</module>
         <module>xdclass-user-service</module>
         <module>xdclass-order-service</module>
+        <module>xdclass-api-gateway</module>
     </modules>
 
     <properties>
@@ -67,7 +68,7 @@
             <dependency>
                 <groupId>cn.hutool</groupId>
                 <artifactId>hutool-all</artifactId>
-                <version>5.8.5</version>
+                <version>5.8.11</version>
             </dependency>
             <dependency>
                 <groupId>org.slf4j</groupId>

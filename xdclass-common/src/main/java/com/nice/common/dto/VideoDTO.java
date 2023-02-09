@@ -4,7 +4,7 @@ package com.nice.common.dto;
  * video查询入参
  */
 public class VideoDTO {
-    Integer videoId;
+    private Integer videoId;
 
     public Integer getVideoId() {
         return videoId;

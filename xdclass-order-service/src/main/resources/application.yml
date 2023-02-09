@@ -12,10 +12,10 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: 192.168.224.130:8848
+        server-addr: 192.168.224.128:8848
     sentinel:
       transport:
-        dashboard: 192.168.224.130:8080
+        dashboard: 192.168.224.128:8080
         port: 7100
 
 # 控制台输出sql、下划线转驼峰
