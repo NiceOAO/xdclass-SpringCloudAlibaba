@@ -20,7 +20,7 @@ spring:
 #          uri: http://127.0.0.1:7000 # 转发到的地址
           uri: lb://xdclass-order-service # 通过nacos获取地址
           order: 1 # 优先级
-          predicates: # 断言 需要转发的路径
+          predicates: # 断言 需要转发的路径   支持多种方式 Path、Query、Method、Header，当配置多个时是同时成立才进行转发
             - Path=/order-service/**
           filters: # 过滤器 请求在传递过程中通过过滤器修改
             - StripPrefix=1 # 去掉第一层前缀/order-service/
@@ -32,3 +32,10 @@ spring:
             - Path=/video-service/**
           filters: # 过滤器 请求在传递过程中通过过滤器修改
             - StripPrefix=1 # 去掉第一层前缀 去掉/video-service/
+  zipkin:
+    base-url: http://192.168.224.128:9411/
+    discovery-client-enabled: false #不开启服务发现
+
+  sleuth:
+    sampler:
+      probability: 1.0 #采样百分比
